@@ -1,0 +1,50 @@
+ul, ol {
+  list-style: none;    /* Remove os pontos ou números */
+  padding: 0;          /* Remove o recuo padrão */
+  margin: 0;           /* Remove margem padrão */
+}
+
+li {
+  text-decoration: none; /* Remove sublinhado, caso esteja vindo de links */
+  font-size: inherit;    /* Garante que a fonte herde do elemento pai */
+}
+
+li a {
+  text-decoration: none; /* Remove sublinhado */
+  color: inherit;        /* Herda a cor do texto do pai */
+  font-size: inherit;    /* Herda o tamanho da fonte */
+}
+.App-menubar {
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  height: fit-content;
+  padding: 0 5%;
+
+}
+.App-menubar nav{
+  display: flex;
+  width:100%;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.App-menubar nav ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  gap: 50px;
+
+}
+.App-menubar nav ul li a{
+    white-space: nowrap;
+}
+
+.App-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
