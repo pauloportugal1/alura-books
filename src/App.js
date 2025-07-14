@@ -1,5 +1,4 @@
 import Header from './components/header';  
-import Pesquisa from './components/pesquisa';
 import MaisVendidos from './components/maisVendidos';
 import UltimosLancamentos from './components/ultimosLancamentos';
 import ResultadosPesquisa from './components/resultadosPesquisa';
@@ -28,6 +27,14 @@ const AppContainer = styled.div`
 const ContentContainer = styled.div`
   padding-top: 60px;
   box-sizing: border-box;
+  gap: 60px;
+  display: flex;
+  flex-direction: column;
+  
+  @media (max-width: 768px) {
+    gap: 40px;
+    padding-top: 50px;
+  }
 `;
 
 function App() {
@@ -214,7 +221,6 @@ function App() {
         <ContentContainer>
           <MaisVendidos
             titulo="Mais Vendidos"
-            livros={maisVendidos}
             mostrarBadge={true}
             textoBadge="Best Seller"
             corBadge="#E74C3C"
@@ -251,9 +257,9 @@ function App() {
               rankingTextColor: "#000"
             }}
           />
+          
           <UltimosLancamentos
             titulo="Últimos Lançamentos"
-            livros={books}
             mostrarBadge={true}
             textoBadge="Novo"
             corBadge="#FF6B35"

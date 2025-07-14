@@ -1,5 +1,4 @@
 import livro from '../../images/livro.png';
-import livro2 from '../../images/livro2.png';
 
 export const books = [
     {
@@ -12,7 +11,7 @@ export const books = [
     {
         nome: 'JavaScript Assertivo',
         id: 2,
-        src: livro2,
+        src: livro,
         autor: 'Gabriel Leite',
         preco: 'R$ 59,90'
     },
@@ -26,7 +25,7 @@ export const books = [
     {
         nome: 'Aventureiros do Java',
         id: 4,
-        src: livro2,
+        src: livro,
         autor: 'Rodrigo Turini',
         preco: 'R$ 52,90'
     },
@@ -40,8 +39,36 @@ export const books = [
     {
         nome: 'Node.js Avançado',
         id: 6,
-        src: livro2,
+        src: livro,
         autor: 'Carlos Silva',
         preco: 'R$ 64,90'
+    },
+    {
+        nome: 'Python para Iniciantes',
+        id: 7,
+        src: livro,
+        autor: 'Maria Santos',
+        preco: 'R$ 45,90'
+    },
+    {
+        nome: 'Vue.js Essencial',
+        id: 8,
+        src: livro,
+        autor: 'Pedro Costa',
+        preco: 'R$ 58,90'
+    },
+    {
+        nome: 'Angular na Prática',
+        id: 9,
+        src: livro,
+        autor: 'Ana Paula',
+        preco: 'R$ 62,90'
+    },
+    {
+        nome: 'TypeScript Avançado',
+        id: 10,
+        src: livro,
+        autor: 'João Silva',
+        preco: 'R$ 69,90'
     }
 ];

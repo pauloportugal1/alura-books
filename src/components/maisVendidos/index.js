@@ -1,39 +1,47 @@
 import styled from 'styled-components';
+import { useBestSellers } from '../../hooks/useApi';
+import Loading from '../loading';
+import ErrorDisplay from '../error';
+import imagemLivro from '../../images/livro.png';
 
 const MaisVendidosContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: ${props => props.padding || '60px 20px'};
+  padding: ${props => props.padding || '100px 20px'};
   text-align: center;
-  gap: 32px;
   background: ${props => props.background || 'transparent'};
+  margin: 60px 0;
   
   @media (max-width: 768px) {
-    padding: 40px 15px;
-    gap: 24px;
+    padding: 80px 15px;
+    margin: 50px 0;
   }
   
   @media (max-width: 480px) {
-    padding: 30px 10px;
-    gap: 20px;
+    padding: 60px 10px;
+    margin: 40px 0;
   }
 `;
 
 const Title = styled.h2`
-  font-size: ${props => props.fontSize || '32px'};
+  font-size: ${props => props.fontSize || '38px'};
   font-weight: 700;
   color: ${props => props.color || '#ffffff'};
-  margin: 0;
+  margin: 0 0 50px 0;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
   
   @media (max-width: 768px) {
-    font-size: 28px;
+    font-size: 32px;
+    margin: 0 0 40px 0;
   }
   
   @media (max-width: 480px) {
-    font-size: 24px;
+    font-size: 28px;
+    margin: 0 0 30px 0;
   }
 `;
 
@@ -167,9 +175,10 @@ const SalesInfo = styled.div`
   margin-top: 8px;
   
   span {
-    font-size: ${props => props.salesSize || '11px'};
-    color: ${props => props.salesColor || '#FFD700'};
-    font-weight: 500;
+    font-size: ${props => props.salesSize || '12px'};
+    color: ${props => props.salesColor || '#333333'};
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
   }
   
   .sales-icon {
@@ -183,7 +192,6 @@ const BookCardWrapper = styled.div`
 
 function MaisVendidos({ 
   titulo = "Mais Vendidos",
-  livros = [],
   mostrarBadge = true,
   textoBadge = "Best Seller",
   corBadge = "#FF6B35",
@@ -213,14 +221,44 @@ function MaisVendidos({
     authorColor: "#ffffff",
     priceSize: "15px",
     priceColor: "#FFD700",
-    salesSize: "11px",
-    salesColor: "#FFD700"
+    salesSize: "12px",
+    salesColor: "#333333"
   },
   estilosRanking = {
     rankingColor: "#FFD700",
     rankingTextColor: "#000"
   }
 }) {
+  // Usar hook para buscar dados da API
+  const { bestSellers: livros, loading, error, refetch } = useBestSellers();
+  
+  // Mostrar loading enquanto carrega
+  if (loading) {
+    return <Loading text="Carregando mais vendidos..." />;
+  }
+  
+  // Mostrar erro se houver problema
+  if (error) {
+    return (
+      <ErrorDisplay 
+        title="Erro ao carregar mais vendidos"
+        message={error}
+        onRetry={refetch}
+      />
+    );
+  }
+  
+  // Se não há livros, não mostrar nada
+  if (!livros || livros.length === 0) {
+    return (
+      <ErrorDisplay 
+        title="Nenhum best seller encontrado"
+        message="Não há livros mais vendidos disponíveis no momento."
+        showRetry={false}
+        icon="🏆"
+      />
+    );
+  }
   return (
     <MaisVendidosContainer>
       <Title 
@@ -262,7 +300,7 @@ function MaisVendidos({
               </BookBadge>
               
               <BookImage 
-                src={book.src} 
+                src={imagemLivro} 
                 alt={book.nome}
                 imageWidth={estilosImagem.width}
                 imageHeight={estilosImagem.height}
@@ -294,7 +332,6 @@ function MaisVendidos({
                   salesSize={estilosTexto.salesSize}
                   salesColor={estilosTexto.salesColor}
                 >
-                  <span className="sales-icon">🔥</span>
                   <span>{book.vendas} vendidos</span>
                 </SalesInfo>
               )}

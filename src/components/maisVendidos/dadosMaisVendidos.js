@@ -1,11 +1,10 @@
 import livro from '../../images/livro.png';
-import livro2 from '../../images/livro2.png';
 
 export const maisVendidos = [
     {
         nome: 'JavaScript Assertivo',
         id: 1,
-        src: livro2,
+        src: livro,
         autor: 'Gabriel Leite',
         preco: 'R$ 59,90',
         vendas: '2.854'
@@ -21,7 +20,7 @@ export const maisVendidos = [
     {
         nome: 'Cangaceiro em JavaScript',
         id: 3,
-        src: livro2,
+        src: livro,
         autor: 'Flávio Almeida',
         preco: 'R$ 55,90',
         vendas: '1.987'
@@ -37,7 +36,7 @@ export const maisVendidos = [
     {
         nome: 'Aventureiros do Java',
         id: 5,
-        src: livro2,
+        src: livro,
         autor: 'Rodrigo Turini',
         preco: 'R$ 52,90',
         vendas: '1.543'
@@ -53,7 +52,7 @@ export const maisVendidos = [
     {
         nome: 'Python para Iniciantes',
         id: 7,
-        src: livro2,
+        src: livro,
         autor: 'Maria Santos',
         preco: 'R$ 45,90',
         vendas: '1.198'
@@ -65,5 +64,21 @@ export const maisVendidos = [
         autor: 'João Pedro',
         preco: 'R$ 58,90',
         vendas: '1.087'
+    },
+    {
+        nome: 'Angular na Prática',
+        id: 9,
+        src: livro,
+        autor: 'Ana Paula',
+        preco: 'R$ 62,90',
+        vendas: '954'
+    },
+    {
+        nome: 'TypeScript Avançado',
+        id: 10,
+        src: livro,
+        autor: 'João Silva',
+        preco: 'R$ 69,90',
+        vendas: '876'
     }
 ];

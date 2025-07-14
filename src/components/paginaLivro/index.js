@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import React, { useState } from 'react';
+import imagemLivro from '../../images/livro.png';
+import imagemLivro2 from '../../images/livro2.png';
 
 const BookPageContainer = styled.div`
   width: 100%;
@@ -371,6 +374,59 @@ const RecommendationCard = styled.div`
   }
 `;
 
+const ContentImagesSection = styled.div`
+  margin: 40px 0;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+`;
+
+const ContentImagesTitle = styled.h3`
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  text-align: center;
+`;
+
+const ContentImagesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+`;
+
+const ContentImage = styled.div`
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+`;
+
 function PaginaLivro({ 
   livro,
   onVoltar,
@@ -379,6 +435,10 @@ function PaginaLivro({
   allBooks,
   onBookClick
 }) {
+  // Estado para controlar a imagem atual
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [imagemLivro, imagemLivro2, imagemLivro];
+
   if (!livro) return null;
 
   // Função para gerar recomendações baseadas no título
@@ -400,7 +460,7 @@ function PaginaLivro({
       
       let score = 0;
       
-      // Pontuação por palavras em comum no título
+      // Pontuação por palavras in comum no título
       currentWords.forEach(word => {
         if (bookWords.some(bookWord => bookWord.includes(word) || word.includes(bookWord))) {
           score += 3;
@@ -467,20 +527,25 @@ function PaginaLivro({
   return (
     <BookPageContainer>
       <Breadcrumb>
-        <a href="#" onClick={onVoltar}>Livros</a>
+        <button onClick={onVoltar} style={{background: 'none', border: 'none', color: '#FF6B35', cursor: 'pointer', textDecoration: 'underline'}}>Livros</button>
         <span>›</span>
-        <a href="#" onClick={onVoltar}>Programação</a>
+        <button onClick={onVoltar} style={{background: 'none', border: 'none', color: '#FF6B35', cursor: 'pointer', textDecoration: 'underline'}}>Programação</button>
         <span>›</span>
         <span>{livro.nome}</span>
       </Breadcrumb>
 
       <BookContent>
         <ImageSection>
-          <BookImage src={livro.src} alt={livro.nome} />
+          <BookImage src={images[currentImage]} alt={livro.nome} />
           <ThumbnailContainer>
-            <Thumbnail src={livro.src} active={true} />
-            <Thumbnail src={livro.src} />
-            <Thumbnail src={livro.src} />
+            {images.map((image, index) => (
+              <Thumbnail 
+                key={index}
+                src={image} 
+                active={currentImage === index}
+                onClick={() => setCurrentImage(index)}
+              />
+            ))}
           </ThumbnailContainer>
         </ImageSection>
 
@@ -575,6 +640,28 @@ function PaginaLivro({
         </PriceSection>
       </BookContent>
       
+      <ContentImagesSection>
+        <ContentImagesTitle>Imagens do conteúdo</ContentImagesTitle>
+        <ContentImagesGrid>
+          <ContentImage>
+            <img src={imagemLivro} alt="Conteúdo do livro" />
+            <div className="overlay">Exemplo de código</div>
+          </ContentImage>
+          <ContentImage>
+            <img src={imagemLivro2} alt="Conteúdo do livro" />
+            <div className="overlay">Tabela de conteúdos</div>
+          </ContentImage>
+          <ContentImage>
+            <img src={imagemLivro} alt="Conteúdo do livro" />
+            <div className="overlay">Gráfico explicativo</div>
+          </ContentImage>
+          <ContentImage>
+            <img src={imagemLivro2} alt="Conteúdo do livro" />
+            <div className="overlay">Estudo de caso</div>
+          </ContentImage>
+        </ContentImagesGrid>
+      </ContentImagesSection>
+      
       {recommendations.length > 0 && (
         <RecommendationsSection>
           <h3>Recomendações para você</h3>
@@ -585,7 +672,7 @@ function PaginaLivro({
                 onClick={() => onBookClick && onBookClick(book)}
               >
                 <img 
-                  src={book.src} 
+                  src={imagemLivro} 
                   alt={book.nome}
                   className="book-image"
                 />
