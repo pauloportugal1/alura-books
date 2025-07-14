@@ -1,23 +1,113 @@
-# Getting Started with Create React App
+# Paul Books - Loja de Livros Online
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Uma loja de livros online moderna desenvolvida com React no frontend e Node.js no backend.
 
-## Available Scripts
+## 🚀 Funcionalidades
 
-In the project directory, you can run:
+### Frontend (React)
+- **Arquitetura baseada em Props**: Componentes reutilizáveis e customizáveis
+- **Seções dinâmicas**: Mais Vendidos, Últimos Lançamentos, Busca
+- **Sistema de busca**: Busca inteligente com sugestões em tempo real
+- **Páginas individuais**: Cada livro possui sua própria página detalhada
+- **Sistema de recomendações**: Recomendações baseadas em similaridade
+- **Layout responsivo**: Design adaptável para todas as telas
+- **Header estilo Amazon**: Navegação intuitiva e moderna
 
-### `npm start`
+### Backend (Node.js + Express)
+- **API RESTful**: Endpoints organizados para todas as funcionalidades
+- **CORS configurado**: Permitindo comunicação com o frontend
+- **Busca avançada**: Filtros por nome, autor e categoria
+- **Sistema de recomendações**: Algoritmo baseado em categorias
+- **Tratamento de erros**: Middleware para tratamento consistente
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📁 Estrutura do Projeto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+paul-books/
+├── public/                 # Arquivos estáticos do React
+├── src/                    # Código fonte do frontend
+│   ├── components/         # Componentes React
+│   │   ├── header/         # Header com busca
+│   │   ├── footer/         # Footer estilo Amazon
+│   │   ├── maisVendidos/   # Seção de mais vendidos
+│   │   ├── ultimosLancamentos/  # Carousel de lançamentos
+│   │   ├── paginaLivro/    # Páginas individuais
+│   │   └── ...
+│   ├── images/             # Imagens dos livros
+│   └── App.js              # Componente principal
+├── server/                 # Backend Node.js
+│   ├── app.js              # Servidor Express
+│   ├── package.json        # Dependências do servidor
+│   └── node_modules/       # Módulos do Node.js
+├── package.json            # Dependências do frontend
+└── README.md               # Este arquivo
+```
 
-### `npm test`
+## 🛠️ Instalação e Execução
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Pré-requisitos
+- Node.js (versão 14 ou superior)
+- npm ou yarn
+
+### 1. Clone o repositório
+```bash
+git clone https://github.com/pauloportugal1/paul-books.git
+cd paul-books
+```
+
+### 2. Instale as dependências do Frontend
+```bash
+npm install
+```
+
+### 3. Instale as dependências do Backend
+```bash
+cd server
+npm install
+cd ..
+```
+
+### 4. Execute o projeto
+
+#### Opção 1: Executar separadamente
+```bash
+# Terminal 1 - Backend (porta 8000)
+cd server
+npm start
+
+# Terminal 2 - Frontend (porta 3000)
+npm start
+```
+
+## 🌐 Endpoints da API
+
+### Livros
+- `GET /api/books` - Lista todos os livros
+- `GET /api/books/:id` - Busca livro por ID
+- `GET /api/books/bestsellers` - Lista livros mais vendidos
+- `GET /api/books/:id/recommendations` - Recomendações para um livro
+
+### Busca
+- `GET /api/search?q=termo` - Busca livros por termo
+
+### Utilidade
+- `GET /api/health` - Status do servidor
+
+## 🎨 Tecnologias Utilizadas
+
+### Frontend
+- **React 18** - Biblioteca JavaScript para interfaces
+- **Styled-components** - CSS-in-JS para estilização
+- **React Hooks** - useState, useEffect para gerenciamento de estado
+
+### Backend
+- **Node.js** - Runtime JavaScript
+- **Express** - Framework web para Node.js
+- **CORS** - Middleware para Cross-Origin Resource Sharing
+
+## 📝 Scripts Disponíveis
+
+### Frontend
 
 ### `npm run build`
 

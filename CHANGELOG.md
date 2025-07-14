@@ -81,3 +81,161 @@
 - [ ] Adicionar sistema de favoritos
 - [ ] Criar sistema de avaliações
 - [ ] Implementar autenticação de usuários
+
+---
+
+# Changelog
+
+Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
+
+## [v1.3.0] - 2025-01-13
+
+### 🚀 Novos Recursos
+
+#### Backend Node.js com Express
+- **Servidor Express**: Implementação completa do servidor backend rodando na porta 8000
+- **API REST**: Estrutura RESTful para comunicação entre frontend e backend
+- **Middlewares**: Configuração do CORS para permitir comunicação cross-origin
+- **Monorepo**: Organização do projeto em estrutura monorepo com diretório `server/`
+
+#### Endpoints da API
+- **GET /api/health**: Verificação do status do servidor
+- **GET /api/books**: Lista completa de livros disponíveis
+- **GET /api/books/bestsellers**: Lista de livros mais vendidos
+- **GET /api/books/:id**: Detalhes de um livro específico
+- **GET /api/search?q=**: Busca de livros por nome ou autor
+
+#### Dados Mock
+- **Catálogo de livros**: Base de dados inicial com livros de programação
+- **Informações detalhadas**: Cada livro contém id, nome, autor, preço, imagem e categoria
+- **Algoritmo de busca**: Funcionalidade de pesquisa por nome do livro ou autor
+
+#### Configuração de Desenvolvimento
+- **Nodemon**: Auto-restart do servidor durante desenvolvimento
+- **Scripts NPM**: Comandos `start` e `dev` para execução do servidor
+- **Dependências**: Express 5.1.0, CORS 2.8.5, Nodemon 3.0.1
+
+### 📚 Documentação
+- **README.md**: Instruções completas para setup do ambiente full-stack
+- **Documentação da API**: Descrição detalhada de todos os endpoints
+- **Guia de instalação**: Passos para configurar tanto frontend quanto backend
+
+### 🛠️ Melhorias Técnicas
+- **Arquitetura Full-Stack**: Transição de aplicação frontend-only para full-stack
+- **Separação de responsabilidades**: Backend dedicado para lógica de negócio
+- **Escalabilidade**: Base sólida para futuras expansões da API
+- **Estrutura de projeto**: Organização clara entre cliente e servidor
+
+### 🔧 Configurações
+- **package.json do servidor**: Configuração completa das dependências do backend
+- **CORS configurado**: Permitindo requisições do frontend React
+- **Middleware JSON**: Suporte para parsing de requisições JSON
+- **Estrutura de pastas**: Organização clara dos arquivos do servidor
+
+### 📦 Dependências Adicionadas
+```json
+{
+  "express": "^5.1.0",
+  "cors": "^2.8.5",
+  "nodemon": "^3.0.1"
+}
+```
+
+### 🔄 Próximos Passos
+- Integração do frontend para consumir a API do backend
+- Implementação de base de dados real
+- Autenticação e autorização
+- Deploy da aplicação full-stack
+
+---
+
+## [v1.2.0] - 2025-01-13
+
+### 🚀 Novos Recursos
+
+#### Sistema de Pesquisa Avançado
+- **Barra de pesquisa**: Implementação completa com sugestões em tempo real
+- **Filtros inteligentes**: Busca por título, autor ou categoria
+- **Resultados dinâmicos**: Atualização instantânea conforme o usuário digita
+- **Página de resultados**: Interface dedicada para exibir resultados da pesquisa
+
+#### Navegação e Roteamento
+- **React Router**: Implementação completa do sistema de rotas
+- **Navegação fluida**: Transições suaves entre páginas
+- **URLs amigáveis**: Rotas semânticas para melhor SEO
+- **Breadcrumbs**: Navegação contextual para o usuário
+
+#### Página Individual do Livro
+- **Detalhes completos**: Informações detalhadas de cada livro
+- **Imagens responsivas**: Visualização otimizada em todos os dispositivos
+- **Botão de compra**: Integração com funcionalidade de carrinho
+- **Recomendações**: Sugestões de livros relacionados
+
+#### Funcionalidades do Carrinho
+- **Adicionar itens**: Funcionalidade para adicionar livros ao carrinho
+- **Gerenciar quantidades**: Aumentar/diminuir quantidade de itens
+- **Remover itens**: Opção para remover livros do carrinho
+- **Cálculo automático**: Total atualizado em tempo real
+
+### 🎨 Melhorias Visuais
+- **Design responsivo**: Interface adaptável para mobile, tablet e desktop
+- **Micro-interações**: Animações sutis para melhor experiência
+- **Tipografia**: Hierarquia visual clara e legível
+- **Cores e contraste**: Paleta consistente e acessível
+
+### 🛠️ Melhorias Técnicas
+- **Componentização**: Estrutura modular e reutilizável
+- **Gerenciamento de estado**: Estado global otimizado
+- **Performance**: Otimizações para carregamento rápido
+- **SEO**: Meta tags e estrutura otimizada para mecanismos de busca
+
+### 🔧 Configurações
+- **ESLint**: Linting configurado para qualidade do código
+- **Prettier**: Formatação automática do código
+- **Webpack**: Build otimizado para produção
+
+### 📦 Dependências Adicionadas
+```json
+{
+  "react-router-dom": "^6.8.0",
+  "styled-components": "^5.3.6"
+}
+```
+
+---
+
+## [v1.1.0] - 2025-01-13
+
+### 🚀 Novos Recursos
+- **Header**: Navegação principal com logo e menu
+- **Footer**: Informações de contato e links úteis
+- **Seção Mais Vendidos**: Exibição dos livros mais populares
+- **Seção Últimos Lançamentos**: Novidades em destaque
+
+### 🎨 Melhorias Visuais
+- **Layout responsivo**: Adaptação para diferentes tamanhos de tela
+- **Componentes estilizados**: Interface moderna e atrativa
+- **Tipografia**: Fontes e hierarquia visual definidas
+
+### 🛠️ Melhorias Técnicas
+- **Estrutura de componentes**: Organização modular do código
+- **Reutilização**: Componentes flexíveis e reutilizáveis
+- **Manutenibilidade**: Código limpo e bem documentado
+
+---
+
+## [v1.0.0] - 2025-01-13
+
+### 🚀 Lançamento Inicial
+- **Configuração inicial**: Setup básico do projeto React
+- **Estrutura base**: Organização inicial dos arquivos
+- **Dependências**: Instalação das bibliotecas essenciais
+
+### 📦 Dependências Iniciais
+```json
+{
+  "react": "^18.2.0",
+  "react-dom": "^18.2.0",
+  "react-scripts": "5.0.1"
+}
+```
