@@ -14,6 +14,10 @@ const HeaderContainer = styled.header`
   position: relative;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 0 10px;
+  }
 `;
 
 const TopRow = styled.div`
@@ -24,11 +28,34 @@ const TopRow = styled.div`
   gap: 20px;
   width: 100%;
   box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    gap: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 8px 10px;
+    gap: 10px;
+  }
 `;
 
 const LogoSection = styled.div`
   flex: 0 0 auto;
   min-width: 160px;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    min-width: 120px;
+  }
+
+  @media (max-width: 480px) {
+    min-width: 100px;
+  }
 `;
 
 const SearchSection = styled.div`
@@ -36,6 +63,12 @@ const SearchSection = styled.div`
   max-width: 600px;
   margin: 0 20px;
   position: relative;
+
+  @media (max-width: 768px) {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+  }
 `;
 
 const IconsSection = styled.div`
@@ -45,6 +78,14 @@ const IconsSection = styled.div`
   gap: 20px;
   min-width: 120px;
   justify-content: flex-end;
+
+  @media (max-width: 768px) {
+    min-width: 80px;
+  }
+
+  @media (max-width: 480px) {
+    min-width: 60px;
+  }
 `;
 
 const MenuRow = styled.div`
@@ -55,6 +96,16 @@ const MenuRow = styled.div`
   border-top: 1px solid #e0e0e0;
   width: 100%;
   box-sizing: border-box;
+  overflow-x: auto;
+
+  & > div {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const SuggestionsList = styled.ul`

@@ -11,6 +11,16 @@ const UltimosLancamentosContainer = styled.section`
   gap: 32px;
   background: ${props => props.background || 'transparent'};
   overflow: hidden;
+  
+  @media (max-width: 768px) {
+    padding: 40px 15px;
+    gap: 24px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 30px 10px;
+    gap: 20px;
+  }
 `;
 
 const Title = styled.h2`
@@ -19,6 +29,14 @@ const Title = styled.h2`
   color: ${props => props.color || '#ffffff'};
   margin: 0;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
 `;
 
 const CarouselContainer = styled.div`
@@ -29,6 +47,14 @@ const CarouselContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 30px;
+  
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
 `;
 
 const CarouselContent = styled.div`
@@ -76,6 +102,18 @@ const CarouselButton = styled.button`
     opacity: 0.5;
     cursor: not-allowed;
   }
+  
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
 `;
 
 const BookCard = styled.div`
@@ -93,6 +131,16 @@ const BookCard = styled.div`
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+    width: 160px;
+    padding: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 140px;
+    padding: 10px;
   }
 `;
 

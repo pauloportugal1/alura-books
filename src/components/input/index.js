@@ -5,6 +5,10 @@ const InputContainer = styled.div`
   width: 100%;
   max-width: ${props => props.maxWidth || '500px'};
   margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 const StyledInput = styled.input`
@@ -37,6 +41,16 @@ const StyledInput = styled.input`
     border-color: ${props => props.hoverBorderColor || 'rgba(255, 255, 255, 0.5)'};
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.2);
     transform: translateY(-1px);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 14px 44px 14px 16px;
+    font-size: 15px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 12px 40px 12px 14px;
+    font-size: 14px;
   }
 `;
 

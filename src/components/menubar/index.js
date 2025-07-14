@@ -23,6 +23,16 @@ const MenubarContainer = styled.div`
     text-transform: uppercase;
     font-weight: 600;
     gap: ${props => props.menuGap || '50px'};
+    
+    @media (max-width: 768px) {
+      gap: 20px;
+      font-size: 14px;
+    }
+    
+    @media (max-width: 480px) {
+      gap: 15px;
+      font-size: 12px;
+    }
   }
 
   nav ul li a {
@@ -33,6 +43,10 @@ const MenubarContainer = styled.div`
     &:hover {
       color: ${props => props.hoverColor || '#FF6B35'};
     }
+    
+    @media (max-width: 480px) {
+      font-size: 12px;
+    }
   }
 
   .App-icons {
@@ -40,11 +54,29 @@ const MenubarContainer = styled.div`
     justify-content: center;
     align-items: center;
     gap: ${props => props.iconGap || '15px'};
+    
+    @media (max-width: 768px) {
+      gap: 12px;
+    }
+    
+    @media (max-width: 480px) {
+      gap: 8px;
+    }
   }
   
   .App-icons img {
     width: ${props => props.iconSize || '24px'};
     height: ${props => props.iconSize || '24px'};
+    
+    @media (max-width: 768px) {
+      width: 20px;
+      height: 20px;
+    }
+    
+    @media (max-width: 480px) {
+      width: 18px;
+      height: 18px;
+    }
   }
 
   .text-menu {

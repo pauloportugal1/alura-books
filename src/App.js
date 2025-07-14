@@ -10,6 +10,7 @@ import { maisVendidos } from './components/maisVendidos/dadosMaisVendidos';
 import { books as searchBooks } from './components/pesquisa/searchData';
 import styled from 'styled-components';
 import { useState } from 'react';
+import './responsive.css';
 
 
 const AppContainer = styled.div`

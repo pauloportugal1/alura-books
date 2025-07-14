@@ -1,0 +1,114 @@
+/* Global responsive styles */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive text */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+/* Utility classes for responsive spacing */
+.container-responsive {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .container-responsive {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-responsive {
+    padding: 0 10px;
+  }
+}
+
+/* Responsive gap utilities */
+.gap-responsive {
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .gap-responsive {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gap-responsive {
+    gap: 10px;
+  }
+}
+
+/* Hide elements on mobile if needed */
+.hide-mobile {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+/* Show only on mobile */
+.show-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .show-mobile {
+    display: block;
+  }
+}
+
+/* Responsive buttons */
+button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 768px) {
+  button, a, input[type="button"], input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Prevent horizontal scrolling */
+body {
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling for iOS */
+* {
+  -webkit-overflow-scrolling: touch;
+}

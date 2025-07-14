@@ -9,6 +9,16 @@ const MaisVendidosContainer = styled.section`
   text-align: center;
   gap: 32px;
   background: ${props => props.background || 'transparent'};
+  
+  @media (max-width: 768px) {
+    padding: 40px 15px;
+    gap: 24px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 30px 10px;
+    gap: 20px;
+  }
 `;
 
 const Title = styled.h2`
@@ -17,6 +27,14 @@ const Title = styled.h2`
   color: ${props => props.color || '#ffffff'};
   margin: 0;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
 `;
 
 const BooksGrid = styled.div`
@@ -25,6 +43,16 @@ const BooksGrid = styled.div`
   gap: ${props => props.gap || '24px'};
   max-width: ${props => props.maxWidth || '1200px'};
   width: 100%;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+  }
 `;
 
 const BookCard = styled.div`
